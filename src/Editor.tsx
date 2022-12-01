@@ -15,10 +15,10 @@ export const MonacoEditor: React.FC<{ port: string }> = ({ port }) => {
         MonacoServices.install()
 
         const model = monaco.editor.createModel(
-            JAVA_STARTER,
-            'java',
-            monaco.Uri.file('/Users/harish/Projects/monaco-lsp/src/Main.java')
-        )
+			JAVA_STARTER,
+			'java',
+			monaco.Uri.file('/home/harish/Project/monaco-lsp/src/Main.java'),
+		)
 
         editorInstance.setModel(model)
 
@@ -34,5 +34,5 @@ export const MonacoEditor: React.FC<{ port: string }> = ({ port }) => {
         }
     }, [])
 
-    return <div ref={editor} style={{ height: '25vh', width: '600px' }}></div>
+    return <div ref={editor} style={{ height: '100vh', width: '600px' }}></div>
 }
