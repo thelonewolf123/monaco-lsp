@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import * as monaco from 'monaco-editor'
 import { MonacoServices } from 'monaco-languageclient'
 import { JAVA_STARTER } from './constants'
-import { LanguageServerPlugin } from './lsp-client'
+// import { LanguageServerPlugin } from './lsp-client'
 
 export const MonacoEditor: React.FC<{ port: string }> = ({ port }) => {
     const editor = useRef<HTMLDivElement | null>(null)
@@ -15,18 +15,18 @@ export const MonacoEditor: React.FC<{ port: string }> = ({ port }) => {
         MonacoServices.install()
 
         const model = monaco.editor.createModel(
-			JAVA_STARTER,
-			'java',
-			monaco.Uri.file('/home/harish/Project/monaco-lsp/src/Main.java'),
-		)
+            JAVA_STARTER,
+            'python',
+            monaco.Uri.file('/home/harish/Project/monaco-lsp/src/main.py')
+        )
 
         editorInstance.setModel(model)
 
-        const plugin = new LanguageServerPlugin(
-            'java',
-            [{ language: 'java' }],
-            `ws://localhost:${port}`
-        )
+        // const plugin = new LanguageServerPlugin(
+        //     'java',
+        //     [{ language: 'java' }],
+        //     `ws://localhost:${port}`
+        // )
 
         return () => {
             model.dispose()
